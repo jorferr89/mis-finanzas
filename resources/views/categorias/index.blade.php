@@ -10,6 +10,11 @@
 <div class="container">
     <h1>Listado de Categorías</h1>
 
+    <!-- Botón modal "Crear Categoría -->
+    <button type="button" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#crear">
+        Crear
+    </button>
+
     <table class="table table-bordered data-table" id="categorias_tabla" class="display nowrap" style="width:100%">
         <thead>
             <tr>
@@ -35,6 +40,9 @@
   
         </tbody>
     </table>
+
+    @include('categorias.crear')
+
 </div>
 @endsection
 

@@ -22,8 +22,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/categorias', [CategoriaController::class, 'index'])->name('categorias.index');
-
 Route::prefix('categorias')->group(function() {
     Route::get('', [CategoriaController::class, 'index'])->name('categorias.index');
 });

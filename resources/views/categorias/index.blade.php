@@ -10,6 +10,8 @@
 <div class="container">
     <h1>Listado de Categorías</h1>
 
+    @include ('layouts.mensaje')
+
     <!-- Botón modal "Crear Categoría -->
     <button type="button" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#crear">
         Crear
@@ -20,7 +22,7 @@
             <tr>
                 <th>Nombre</th>
                 <th>Tipo</th>
-                <th width="100px">Acciones</th>
+                <th width="75px">Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -29,11 +31,23 @@
                     <td>
                         {{ $categoria->nombre }}
                     </td>
-                    <td>
-                        {{ $categoria->tipo }} 
+                    <td> 
+                        @if($categoria->tipo === '1') Ahorros
+                        @elseif($categoria->tipo === '2') Gastos
+                        @elseif($categoria->tipo === '3') Ingresos
+                        @endif
                     </td>
                     <td>
-                        Acciones 
+                        <!-- Botón modal "Editar Categoría -->
+                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editar{{$categoria->id}}">
+                            <i class="fa-solid fa-pencil"></i>
+                        </button>
+                        @include('categorias.editar')
+                        <!-- Botón modal "Editar Categoría -->
+                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminar{{$categoria->id}}">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        @include('categorias.eliminar')
                     </td>
                 </tr>
             @endforeach

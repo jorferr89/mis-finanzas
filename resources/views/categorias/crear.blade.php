@@ -12,7 +12,7 @@
                     <div class="mb-3 row">
                         <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre">
+                            <input type="text" class="form-control @error('nombre') is-invalid @enderror" value="{{ old('nombre') }}" name="nombre">
                             @error('nombre')
                                 <span class="invalid-feedback" role="alert">
                                     {{$message}}

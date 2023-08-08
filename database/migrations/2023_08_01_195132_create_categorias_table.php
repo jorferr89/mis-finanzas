@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nombre');
             // tipo será un nuevo modelo despues
             $table->string('tipo');
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

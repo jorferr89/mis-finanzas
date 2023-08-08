@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\TransaccionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,11 @@ Route::middleware(['auth'])->group(function(){
         Route::post('crear', [CategoriaController::class, 'guardar'])->name('categorias.guardar');
         Route::put('editar/{categoria}', [CategoriaController::class, 'actualizar'])->where('categoria', '[0-9]+')->name('categorias.actualizar');
         Route::delete('eliminar/{categoria}', [CategoriaController::class, 'eliminar'])->where('categoria', '[0-9]+')->name('categorias.eliminar');
+    });
+
+    Route::prefix('mis-transacciones')->group(function() {
+        Route::get('', [TransaccionController::class, 'index'])->name('transacciones.index');
+        Route::get('/crear', [TransaccionController::class, 'crear'])->name('transacciones.crear');
     });
 });
 

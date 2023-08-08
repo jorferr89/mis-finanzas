@@ -61,6 +61,10 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
+                                    <a class="dropdown-item" href="{{ route('transacciones.index') }}">
+                                        <i class="fa-solid fa-hand-holding-dollar"></i> Mis Transacciones
+                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('categorias.index') }}">
                                         <i class="fa-solid fa-list"></i> Categorías
                                     </a>

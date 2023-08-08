@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Listado de Categorías')
+@section('title', 'Mis Transacciones')
 
 @section('styles')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
@@ -8,54 +8,47 @@
 
 @section('content')
 <div class="container">
-    <h1>Listado de Categorías</h1>
+    <h1>Mis Transacciones</h1>
 
     @include ('layouts.mensaje')
 
-    <!-- Botón modal "Crear Categoría -->
-    <button type="button" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#crear">
+    <a href="{{ route('transacciones.crear') }}" class="btn btn-primary my-2">
         <i class="fa-solid fa-plus"></i> Crear
-    </button>
+    </a>
 
-    <table class="table table-bordered data-table" id="categorias_tabla" class="display nowrap" style="width:100%">
+    <table class="table table-bordered data-table" id="transacciones_tabla" class="display nowrap" style="width:100%">
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Tipo</th>
+                <th>Descripción</th>
+                <th>Monto</th>
+                <th>Fecha</th>
+                <th>Categoría</th>
                 <th width="75px">Acciones</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($categorias as $categoria)
+            @foreach($transacciones as $transaccion)
                 <tr>
                     <td>
-                        {{ $categoria->nombre }}
+                        {{ $transaccion->descripcion }}
                     </td>
                     <td> 
-                        @if($categoria->tipo === '1') Ahorros
-                        @elseif($categoria->tipo === '2') Gastos
-                        @elseif($categoria->tipo === '3') Ingresos
-                        @endif
+                        {{ $transaccion->monto }}
+                    </td>
+                    <td> 
+                        {{ $transaccion->fecha }}
+                    </td>
+                    <td> 
+                        {{ $transaccion->categoria->nombre }}
                     </td>
                     <td>
-                        <!-- Botón modal "Editar Categoría -->
-                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editar{{$categoria->id}}">
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        @include('categorias.editar')
-                        <!-- Botón modal "Editar Categoría -->
-                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminar{{$categoria->id}}">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        @include('categorias.eliminar')
+                        Acciones
                     </td>
                 </tr>
             @endforeach
   
         </tbody>
     </table>
-
-    @include('categorias.crear')
 
 </div>
 @endsection
@@ -67,7 +60,7 @@
 
         $(document).ready(function() {
 
-            $('#categorias_tabla').DataTable({
+            $('#transacciones_tabla').DataTable({
                 aaSorting: [],
                 language: {
                     "sProcessing":     "Procesando...",

@@ -32,9 +32,10 @@
                         {{ $categoria->nombre }}
                     </td>
                     <td> 
-                        @if($categoria->tipo === '1') Ahorros
-                        @elseif($categoria->tipo === '2') Gastos
-                        @elseif($categoria->tipo === '3') Ingresos
+                        @if($categoria->tipo === '1') <span class="badge bg-info text-dark">Ahorros</span>
+                        @elseif($categoria->tipo === '2') <span class="badge bg-danger">Gastos</span>
+                        @elseif($categoria->tipo === '3') <span class="badge bg-success">Ingreso</span>
+                        @elseif($categoria->tipo === '4') <span class="badge bg-primary">Inversión</span>
                         @endif
                     </td>
                     <td>

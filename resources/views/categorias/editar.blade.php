@@ -29,7 +29,8 @@
                         <select class="form-select @error('tipo') is-invalid @enderror" name="tipo">
                             <option value="1" {{ old('tipo', $categoria->tipo) === '1' ? 'selected' : '' }}>Ahorros</option>
                             <option value="2" {{ old('tipo', $categoria->tipo) === '2' ? 'selected' : '' }}>Gastos</option>
-                            <option value="3" {{ old('tipo', $categoria->tipo) === '3' ? 'selected' : '' }}>Ingresos</option>
+                            <option value="3" {{ old('tipo', $categoria->tipo) === '3' ? 'selected' : '' }}>Ingreso</option>
+                            <option value="4" {{ old('tipo', $categoria->tipo) === '4' ? 'selected' : '' }}>Inversión</option>
                         </select>
                         @error('tipo')
                             <span class="invalid-feedback" role="alert">

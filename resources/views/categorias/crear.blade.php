@@ -29,6 +29,7 @@
                                 <option value="1">Ahorros</option>
                                 <option value="2">Gastos</option>
                                 <option value="3">Ingresos</option>
+                                <option value="4">Inversión</option>
                             </select>
                             @error('tipo')
                                 <span class="invalid-feedback" role="alert">

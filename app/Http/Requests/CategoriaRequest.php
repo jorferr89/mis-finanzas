@@ -22,7 +22,7 @@ class CategoriaRequest extends FormRequest
     public function rules(): array{
         return [
             'nombre' => 'required||string|min:5|max:50',
-            'tipo' => 'required|regex:/^[1-3]+$/|max:10',
+            'tipo' => 'required|regex:/^[1-4]+$/|max:10',
         ];
     }
 

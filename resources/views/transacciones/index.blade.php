@@ -39,7 +39,11 @@
                         {{ $transaccion->fecha }}
                     </td>
                     <td> 
-                        {{ $transaccion->categoria->nombre }}
+                        @if($transaccion->categoria->tipo === '1') <span class="badge bg-info text-dark">{{ $transaccion->categoria->nombre }}</span>
+                        @elseif($transaccion->categoria->tipo === '2') <span class="badge bg-danger">{{ $transaccion->categoria->nombre }}</span>
+                        @elseif($transaccion->categoria->tipo === '3') <span class="badge bg-success">{{ $transaccion->categoria->nombre }}</span>
+                        @elseif($transaccion->categoria->tipo === '4') <span class="badge bg-primary">{{ $transaccion->categoria->nombre }}</span>
+                        @endif
                     </td>
                     <td>
                         Acciones

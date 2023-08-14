@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function(){
     Route::prefix('mis-transacciones')->group(function() {
         Route::get('', [TransaccionController::class, 'index'])->name('transacciones.index');
         Route::get('/crear', [TransaccionController::class, 'crear'])->name('transacciones.crear');
+        Route::post('/crear', [TransaccionController::class, 'guardar'])->name('transacciones.guardar');
         Route::get('autocompletar', [TransaccionController::class, 'autocompletar'])->name('autocompletar');
     });
 });

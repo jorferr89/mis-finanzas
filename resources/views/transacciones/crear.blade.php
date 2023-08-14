@@ -10,24 +10,38 @@
 <div class="container">
     <h1>Crear Transacción</h1>
 
-    @include ('layouts.mensaje')
-
-    <form class="row g-3">
+    <form class="row g-3" method="post" action="{{route('transacciones.guardar')}}">
+        @csrf
         <div class="col-md-6">
             <label for="descripcion" class="form-label">Descripción</label>
-            <input type="text" class="form-control" name="descripcion">
+            <input type="text" class="form-control" name="descripcion" class="form-control @error('descripcion') is-invalid @enderror" value="{{old('descripcion')}}">
+            @error('descripcion')
+                <p class="text-danger">{{$message}}</p>
+            @enderror
+
         </div>
         <div class="col-md-6">
             <label for="monto" class="form-label">Monto</label>
-            <input type="number" class="form-control" name="monto">
+            <input type="number" class="form-control" name="monto" class="form-control @error('monto') is-invalid @enderror" value="{{old('monto')}}">
+            @error('monto')
+                <p class="text-danger">{{$message}}</p>
+            @enderror
         </div>
         <div class="col-md-6">
             <label for="fecha" class="form-label">Fecha</label>
-            <input type="date" class="form-control" name="fecha">
+            <input type="date" class="form-control" name="fecha" class="form-control @error('fecha') is-invalid @enderror" value="{{old('fecha')}}">
+            @error('fecha')
+                <p class="text-danger">{{$message}}</p>
+            @enderror
         </div>
         <div class="col-md-6">
             <label for="categoria" class="form-label">Categoría</label>
-            <select id="categorias" class="form-select" name="categoria_id"></select>
+            <select id="categorias" class="form-select custom-select @error('categoria_id') is-invalid @enderror" name="categoria_id"></select>
+
+            @error('categoria_id')
+                <p class="text-danger">{{$message}}</p>
+            @enderror
+
         </div>
         
         <div class="col-12 text-center">

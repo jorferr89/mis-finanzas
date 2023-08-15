@@ -36,7 +36,13 @@
         </div>
         <div class="col-md-6">
             <label for="categoria" class="form-label">Categoría</label>
-            <select id="categorias" class="form-select custom-select @error('categoria_id') is-invalid @enderror" name="categoria_id"></select>
+            <select id="categorias" class="form-select custom-select @error('categoria_id') is-invalid @enderror" name="categoria_id">
+                @if(old('categoria_id') != null)
+                    <option value="{{ old('categoria_id') }}" selected="selected">
+                        {{ old('categoria_id') }}
+                    </option>
+                @endif
+            </select>
 
             @error('categoria_id')
                 <p class="text-danger">{{$message}}</p>
@@ -87,6 +93,5 @@
             cache: true
             }
         });
-    
     </script>
 @endsection

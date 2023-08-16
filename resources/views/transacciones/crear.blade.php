@@ -36,17 +36,26 @@
         </div>
         <div class="col-md-6">
             <label for="categoria" class="form-label">Categoría</label>
-            <select id="categorias" class="form-select custom-select @error('categoria_id') is-invalid @enderror" name="categoria_id">
-                @if(old('categoria_id') != null)
-                    <option value="{{ old('categoria_id') }}" selected="selected">
-                        {{ old('categoria_id') }}
-                    </option>
-                @endif
+            <select id="categorias" name="categoria_id" class="form-select @error('categoria_id') is-invalid @enderror" value="{{old('categoria_id')}}">
+                <option value="" selected disabled hidden>- Seleccione un valor -</option>
+                @foreach($categorias as $c)
+                    @if (old('categoria_id') == $c->id)
+                        <option value="{{$c->id}}" selected>
+                            {{$c->nombre}}
+                        </option>
+                    @else
+                        <option value="{{$c->id}}">
+                            {{$c->nombre}}
+                        </option>
+                    @endif
+                @endforeach
             </select>
-
             @error('categoria_id')
-                <p class="text-danger">{{$message}}</p>
+            <span class="invalid-feedback" role="alert">
+                {{$message}}
+            </span>
             @enderror
+
 
         </div>
         
@@ -64,34 +73,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
     <script type="text/javascript">
-        var path = "{{ route('autocompletar') }}";
     
         $('#categorias').select2({
             language: {
                 noResults: function() {
                     return "No hay resultados";        
-                },
-                searching: function() {
-                    return "Buscando...";
                 }
             },
-            placeholder: 'Seleccione una Categoría',
-            ajax: {
-            url: path,
-            dataType: 'json',
             delay: 250,
-            processResults: function (data) {
-                return {
-                results:  $.map(data, function (item) {
-                        return {
-                            text: item.nombre,
-                            id: item.id
-                        }
-                    })
-                };
-            },
             cache: true
-            }
         });
     </script>
 @endsection

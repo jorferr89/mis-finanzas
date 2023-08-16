@@ -15,7 +15,9 @@ class TransaccionController extends Controller
     }
 
     public function crear(Request $request) {
-        return view('transacciones.crear');
+        $categorias = Categoria::orderby('nombre', 'asc')->get();
+        //dd($categorias);
+        return view('transacciones.crear', compact('categorias'));
     }
 
     public function guardar(TransaccionRequest $request){
@@ -27,17 +29,5 @@ class TransaccionController extends Controller
             'user_id' => auth()->id(),
         ]);
         return redirect()->route('transacciones.index')->with('message', 'Transacción guardada.');
-    }
-
-    public function autocompletar(Request $request) {
-        $data = [];
-    
-        if($request->filled('q')){
-            $data = Categoria::select("nombre", "id")
-                        ->where('nombre', 'LIKE', '%'. $request->get('q'). '%')
-                        ->get();
-        }
-     
-        return response()->json($data);
     }
 }

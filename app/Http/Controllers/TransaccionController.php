@@ -30,4 +30,26 @@ class TransaccionController extends Controller
         ]);
         return redirect()->route('transacciones.index')->with('message', 'Transacción guardada.');
     }
+
+    public function editar(Transaccion $transaccion) {
+        $categorias = Categoria::orderby('nombre', 'asc')->get();
+        return view('transacciones.editar',compact('transaccion', 'categorias'));
+    }
+
+    public function actualizar(TransaccionRequest $request, Transaccion $transaccion) {
+        $transaccion->update([
+            'descripcion'    => $request->descripcion,
+            'monto'      => $request->monto,
+            'fecha'     => $request->fecha,
+            'categoria_id' => $request->categoria_id,
+            'user_id' => auth()->id(),
+        ]);
+        return redirect()->route('transacciones.index')->with('message', 'Transacción actualizada.');
+    }
+
+    public function eliminar(Transaccion $transaccion) {
+        $transaccion->delete();
+        return redirect()->route('transacciones.index')->with('message','Transacción eliminada.');
+    }
+
 }

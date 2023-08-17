@@ -46,7 +46,16 @@
                         @endif
                     </td>
                     <td>
-                        Acciones
+                        
+                        <a href="{{ route('transacciones.editar', $transaccion)}}">
+                            <div class="btn btn-primary btn-sm">
+                                <i class="fa-solid fa-pencil"></i>
+                            </div>
+                        </a>
+                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminar{{$transaccion->id}}">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        @include('transacciones.eliminar')
                     </td>
                 </tr>
             @endforeach

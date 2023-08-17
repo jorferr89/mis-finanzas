@@ -33,9 +33,11 @@ Route::middleware(['auth'])->group(function(){
 
     Route::prefix('mis-transacciones')->group(function() {
         Route::get('', [TransaccionController::class, 'index'])->name('transacciones.index');
-        Route::get('/crear', [TransaccionController::class, 'crear'])->name('transacciones.crear');
-        Route::post('/crear', [TransaccionController::class, 'guardar'])->name('transacciones.guardar');
-        Route::get('autocompletar', [TransaccionController::class, 'autocompletar'])->name('autocompletar');
+        Route::get('crear', [TransaccionController::class, 'crear'])->name('transacciones.crear');
+        Route::post('crear', [TransaccionController::class, 'guardar'])->name('transacciones.guardar');
+        Route::get('editar/{transaccion}', [TransaccionController::class, 'editar'])->where('transaccion', '[0-9]+')->name('transacciones.editar');
+        Route::put('editar/{transaccion}', [TransaccionController::class, 'actualizar'])->where('transaccion', '[0-9]+')->name('transacciones.actualizar');
+        Route::delete('eliminar/{transaccion}', [TransaccionController::class, 'eliminar'])->where('transaccion', '[0-9]+')->name('transacciones.eliminar');
     });
 });
 

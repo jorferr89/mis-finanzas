@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Mis Transacciones - Crear')
+@section('title', 'Mis Finanzas - Mis Transacciones - Editar')
 
 @section('styles')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"/>
@@ -61,8 +61,10 @@
         </div>
         
         <div class="col-12 text-center">
-            <button type="submit" class="btn btn-primary">Guardar</button>
-            <button type="button" class="btn btn-secondary">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+            <a href="{{ route('transacciones.index')}}" class="btn btn-secondary">
+                Cerrar
+            </a>
         </div>
     </form>
 

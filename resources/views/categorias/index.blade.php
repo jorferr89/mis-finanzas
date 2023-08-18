@@ -14,7 +14,7 @@
 
     <!-- Botón modal "Crear Categoría -->
     <button type="button" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#crear">
-        <i class="fa-solid fa-plus"></i> Crear
+        Crear
     </button>
 
     <table class="table table-bordered data-table" id="categorias_tabla" class="display nowrap" style="width:100%">

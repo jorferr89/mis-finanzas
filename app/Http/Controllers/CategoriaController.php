@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Categoria;
+use App\Models\Transaccion;
 use App\Http\Requests\CategoriaRequest;
 
 class CategoriaController extends Controller
@@ -31,7 +32,7 @@ class CategoriaController extends Controller
 
     public function eliminar(Categoria $categoria) {
         // referencias se ocupará para ver si la Categoría a eliminar está asociada con alguna Transacción
-        $references = 1;
+        $references = Transaccion::whereCategoria_id($categoria->id)->count();
 
         if ($references > 0) 
             return redirect()->route('categorias.index')->withErrors('No se puede eliminar la Categoría porque hay registros asociados');

@@ -10,7 +10,7 @@ use App\Http\Requests\TransaccionRequest;
 class TransaccionController extends Controller
 {
     public function index(Request $request) {
-        $transacciones = Transaccion::orderBy('fecha', 'desc')->get();
+        $transacciones = Transaccion::whereUser_id(auth()->id())->orderBy('fecha', 'desc')->get();
         return view('transacciones.index', compact('transacciones'));
     }
 
@@ -32,6 +32,9 @@ class TransaccionController extends Controller
     }
 
     public function editar(Transaccion $transaccion) {
+        if($transaccion->user->id != auth()->id())
+            return redirect()->route('home');
+
         $categorias = Categoria::orderby('nombre', 'asc')->get();
         return view('transacciones.editar',compact('transaccion', 'categorias'));
     }

@@ -7,16 +7,18 @@
 @endsection
 
 @section('content')
-<div class="container">
-    <h1>Mis Transacciones</h1>
+<div class="container bg-light text-dark rounded p-2">
+
+    <div class="d-flex justify-content-between align-items-center my-1">
+        <h2 class="mb-0">Mis Transacciones</h3>
+        <a href="{{ route('transacciones.crear') }}" class="btn btn-primary">
+            Crear
+        </a>
+    </div>
 
     @include ('layouts.mensaje')
 
-    <a href="{{ route('transacciones.crear') }}" class="btn btn-primary my-2">
-        Crear
-    </a>
-
-    <table class="table table-bordered data-table" id="transacciones_tabla" class="display nowrap" style="width:100%">
+    <table class="table table-bordered data-table display nowrap" id="transacciones_tabla" style="width:100%">
         <thead>
             <tr>
                 <th>Descripción</th>
@@ -72,6 +74,8 @@
 
             $('#transacciones_tabla').DataTable({
                 aaSorting: [],
+                pageLength : 5,
+                lengthMenu: [[5, 10], [5, 10]],
                 language: {
                     "sProcessing":     "Procesando...",
                     "sLengthMenu":     "Mostrar _MENU_ registros",

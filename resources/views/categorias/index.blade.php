@@ -7,17 +7,17 @@
 @endsection
 
 @section('content')
-<div class="container">
-    <h1>Listado de Categorías</h1>
+<div class="container bg-light text-dark rounded p-2">
 
-    @include ('layouts.mensaje')
+    <div class="d-flex justify-content-between align-items-center my-1">
+        <h2 class="mb-0">Listado de Categorías</h3>
+        <!-- Botón modal "Crear Categoría -->
+        <button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#crear">
+            Crear
+        </button>
+    </div>
 
-    <!-- Botón modal "Crear Categoría -->
-    <button type="button" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#crear">
-        Crear
-    </button>
-
-    <table class="table table-bordered data-table" id="categorias_tabla" class="display nowrap" style="width:100%">
+    <table class="table table-bordered data-table display nowrap" id="categorias_tabla" style="width:100%">
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -70,6 +70,9 @@
 
             $('#categorias_tabla').DataTable({
                 aaSorting: [],
+                pageLength : 5,
+                lengthMenu: [[5, 10], [5, 10]],
+
                 language: {
                     "sProcessing":     "Procesando...",
                     "sLengthMenu":     "Mostrar _MENU_ registros",

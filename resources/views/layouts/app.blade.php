@@ -16,10 +16,29 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <style>
+            body {
+                background: url("/finanzas-fondo.jpg") no-repeat center center fixed;
+                
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+
+            footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                height: 40px;
+            }
+    </style>
+
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <i class="fa-solid fa-dollar-sign"></i> Mis Finanzas
@@ -85,10 +104,14 @@
                 </div>
             </div>
         </nav>
-        <main class="py-4">
+        <main class="py-4 my-4">
             @yield('content')
             @yield('scripts')
         </main>
+
+        <footer class="text-center text-white py-3 bg-dark shadow-sm">
+            Mis Finanzas © Copyright {{date('Y')}}
+        </footer>
     </div>
 </body>
 </html>

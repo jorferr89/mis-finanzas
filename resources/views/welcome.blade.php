@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Mis Finanzas - Bienvenido')
+@section('title', 'Mis Finanzas')
 
 @section('styles')
     
@@ -8,7 +8,11 @@
 
 @section('content')
 <div class="container bg-light text-dark rounded p-2">
-    Poner Gráficos
+    Poner Detalles del Sistema
+
+    <a href="{{ route('home') }}">
+        Ir al Home
+    </a>
 </div>
 
 @endsection

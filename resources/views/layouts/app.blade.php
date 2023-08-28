@@ -80,6 +80,10 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
+                                    <a class="dropdown-item" href="{{ route('home') }}">
+                                        <i class="fa-solid fa-gauge"></i> Dashboard
+                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('transacciones.index') }}">
                                         <i class="fa-solid fa-hand-holding-dollar"></i> Mis Transacciones
                                     </a>

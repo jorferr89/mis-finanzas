@@ -11,12 +11,12 @@
 <div class="container bg-light text-dark rounded p-2">
     <h1>Dashboard</h1>
     <div class="row">
-        <div class="col-md-6">TOTAL DE AHORROS: $</div>
-        <div class="col-md-6">TOTAL DE GASTOS: $</div>
+        <div class="col-md-6">TOTAL DE AHORROS: $ {{ $ahorros }}</div>
+        <div class="col-md-6">TOTAL DE GASTOS: $ {{ $gastos }}</div>
     </div>
     <div class="row">
-        <div class="col-md-6">TOTAL DE INGRESOS: $</div>
-        <div class="col-md-6">TOTAL DE INVERSIÓN: $</div>
+        <div class="col-md-6">TOTAL DE INGRESOS: $ {{ $ingresos }}</div>
+        <div class="col-md-6">TOTAL DE INVERSIÓN: $ {{ $inversion }}</div>
     </div>
 </div>
 
@@ -32,19 +32,19 @@
                 <h5>Cantidad de Transacciones por Categoría</h5>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Ahorros
-                    <span class="badge bg-info text-dark">14</span>
+                    <span class="badge bg-info text-dark"> {{ $cahorros }}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Gastos
-                    <span class="badge bg-danger">20</span>
+                    <span class="badge bg-danger"> {{ $cgastos}} </span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Ingresos
-                    <span class="badge bg-success">35</span>
+                    <span class="badge bg-success"> {{ $cingresos }} </span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Inversión
-                    <span class="badge bg-warning">14</span>
+                    <span class="badge bg-warning"> {{ $cinversion }} </span>
                 </li>
             </ul>
         </div>

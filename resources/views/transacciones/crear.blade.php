@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="container bg-light text-dark rounded p-2">
-    <h1>Crear Transacción</h1>
+    <h3>Crear Transacción</h3>
 
     <form class="row g-3" method="post" action="{{route('transacciones.guardar')}}">
         @csrf

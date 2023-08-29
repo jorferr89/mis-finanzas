@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="container bg-light text-dark rounded p-2">
-    <h1>Editar Transacción</h1>
+    <h3>Editar Transacción</h3>
 
     <form class="row g-3" method="POST" action="{{ route('transacciones.actualizar', $transaccion) }}">
         {{ csrf_field() }}

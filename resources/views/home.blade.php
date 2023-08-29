@@ -84,10 +84,10 @@
             function drawChart() {
                 var data = google.visualization.arrayToDataTable([
                 ['Categoría', 'Cantidad'],
-                ['Ahorros',     11],
-                ['Gastos',      2],
-                ['Inversión',  2],
-                ['Ingresos', 2]
+                ['Ahorros', {{$recuentoCategoria[1]}}],
+                ['Gastos', {{$recuentoCategoria[2]}}],
+                ['Inversión',  {{$recuentoCategoria[3]}}],
+                ['Ingresos', {{$recuentoCategoria[4]}}]
                 ]);
 
                 var options = {

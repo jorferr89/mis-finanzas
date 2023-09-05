@@ -50,13 +50,16 @@ class HomeController extends Controller
 
         //dd($ahorros);
 
+        $disponible = 0;
+        $disponible = $ingresos - ($ahorros + $gastos + $inversion);
+
         $recuentoCategoria=[1=>0, 2=>0, 3=>0, 4=>0];
         foreach ($transacciones as $t) {
             $recuentoCategoria[$t->categoria->tipo]++;
         }
 
-        return view('home', compact ('ahorros', 'gastos', 'ingresos', 'inversion', 
-                    'cahorros', 'cgastos', 'cingresos', 'cinversion',
+        return view('home', compact ('transacciones', 'ahorros', 'gastos', 'ingresos', 'inversion', 
+                    'cahorros', 'cgastos', 'cingresos', 'cinversion', 'disponible',
                     'recuentoCategoria'
         ));
     }

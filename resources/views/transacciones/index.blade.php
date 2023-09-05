@@ -38,7 +38,7 @@
                             {{ $transaccion->monto }}
                         </td>
                         <td> 
-                            {{ $transaccion->fecha }}
+                            {{DateTime::createFromFormat('Y-m-d', $transaccion->fecha)->format('d/m/Y')}}
                         </td>
                         <td> 
                             @if($transaccion->categoria->tipo === '1') <span class="badge bg-info text-dark">{{ $transaccion->categoria->nombre }}</span>

@@ -18,6 +18,10 @@
         <div class="col-md-6">TOTAL DE INGRESOS: $ {{ $ingresos }}</div>
         <div class="col-md-6">TOTAL DE INVERSIÓN: $ {{ $inversion }}</div>
     </div>
+
+    @if ($disponible > 0) <span class="badge bg-success"> + {{ $disponible }} </span>
+    @else <span class="badge bg-danger"> - {{ $disponible }} </span>
+    @endif
 </div>
 
 <div class="container bg-light text-dark rounded p-2 mt-4">
@@ -62,16 +66,19 @@
 
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-            ['Fecha', 'Ingresos', 'Ahorros / Gastos / Inversión'],
-            ['01/01/2023',  1000,      400],
-            ['05/04/2023',  1170,      460],
-            ['20/06/2023',  660,       1120],
-            ['31/08/2023',  1030,      540]
+            ['Fecha', 'Monto'],
+                @foreach($transacciones as $t)
+                    ['{{DateTime::createFromFormat('Y-m-d', $t->fecha)->format('d/m/Y')}}', {{$t->monto}}],
+                @endforeach
             ]);
+
+            var formatter = new google.visualization.NumberFormat({pattern: '$#.##'});
+            formatter.format(data, 1); 
 
             var options = {
             title: 'Montos de Transacciones por Categoría',
             curveType: 'function',
+            vAxis: { format:'$#.##'},
             legend: { position: 'bottom' }
             };
 

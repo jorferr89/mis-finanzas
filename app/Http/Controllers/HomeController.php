@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index() {
         //dd("Dashboard");
-
+        $cantidadTransacciones = Transaccion::whereUser_id(auth()->id())->count();
         $ahorros = 0; $gastos = 0; $ingresos = 0; $inversion = 0; $monto = 0;
         $cahorros = 0; $cgastos = 0; $cingresos = 0; $cinversion = 0;
         $transacciones = Transaccion::whereUser_id(auth()->id())->get();
@@ -58,7 +58,7 @@ class HomeController extends Controller
             $recuentoCategoria[$t->categoria->tipo]++;
         }
 
-        return view('home', compact ('transacciones', 'ahorros', 'gastos', 'ingresos', 'inversion', 
+        return view('home', compact ('cantidadTransacciones', 'transacciones', 'ahorros', 'gastos', 'ingresos', 'inversion', 
                     'cahorros', 'cgastos', 'cingresos', 'cinversion', 'disponible',
                     'recuentoCategoria'
         ));

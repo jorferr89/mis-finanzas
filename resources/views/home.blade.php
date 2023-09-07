@@ -76,7 +76,7 @@
             formatter.format(data, 1); 
 
             var options = {
-            title: 'Montos de Transacciones por Categoría',
+            title: 'Montos de Transacciones',
             curveType: 'function',
             vAxis: { format:'$#.##'},
             legend: { position: 'bottom' }

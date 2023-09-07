@@ -58,12 +58,19 @@
 
 
         </div>
-        
-        <div class="col-12 text-center">
-            <button type="submit" class="btn btn-primary">Guardar</button>
-            <a href="{{ route('transacciones.index')}}" class="btn btn-secondary">
-                Cerrar
-            </a>
+        <div class="row p-2 mx-auto">
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <a href="{{ route('transacciones.index')}}" class="btn btn-secondary">
+                        Cerrar
+                    </a>
+                </div>
+            </div>
         </div>
     </form>
 

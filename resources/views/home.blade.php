@@ -24,36 +24,43 @@
     @endif
 </div>
 
-<div class="container bg-light text-dark rounded p-2 mt-4">
-    <div id="curve_chart" style="width: auto; height: auto;"></div>
-</div>
+@if($cantidadTransacciones > 5)
+    <div class="container bg-light text-dark rounded p-2 mt-4">
+        <div id="curve_chart" style="width: auto; height: auto;"></div>
+    </div>
 
-<div class="container bg-light text-dark rounded p-2 mt-2">
-    <div class="row my-3">
-        <div class="col-md-6"><div id="donutchart" style="width: auto; height: auto;"></div></div>
-        <div class="col-md-6">
-            <ul class="list-group">
-                <h5>Cantidad de Transacciones por Categoría</h5>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Ahorros
-                    <span class="badge bg-info text-dark"> {{ $cahorros }}</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Gastos
-                    <span class="badge bg-danger"> {{ $cgastos}} </span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Ingresos
-                    <span class="badge bg-success"> {{ $cingresos }} </span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Inversión
-                    <span class="badge bg-warning"> {{ $cinversion }} </span>
-                </li>
-            </ul>
+    <div class="container bg-light text-dark rounded p-2 mt-2">
+        <div class="row my-3">
+            <div class="col-md-6"><div id="donutchart" style="width: auto; height: auto;"></div></div>
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <h5>Cantidad de Transacciones por Categoría</h5>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Ahorros
+                        <span class="badge bg-info text-dark"> {{ $cahorros }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Gastos
+                        <span class="badge bg-danger"> {{ $cgastos}} </span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Ingresos
+                        <span class="badge bg-success"> {{ $cingresos }} </span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Inversión
+                        <span class="badge bg-warning"> {{ $cinversion }} </span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
+    @else
+    <div class="container bg-light text-dark rounded p-2 mt-2">
+        <h2>Sin datos para visualizar</h2>
+    </div>
+
+@endif
 
 @endsection
 

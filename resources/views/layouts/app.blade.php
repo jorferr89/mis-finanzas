@@ -68,7 +68,7 @@
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">
-                                        <i class="fa-solid fa-user-plus"></i> Registro
+                                        <i class="fa-solid fa-user-plus"></i> Registrarme
                                     </a>
                                 </li>
                             @endif

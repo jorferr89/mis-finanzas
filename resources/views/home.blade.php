@@ -10,6 +10,9 @@
 
 <div class="container bg-light text-dark rounded p-2">
     <h1>Dashboard</h1>
+    <hr>
+    @include ('filtros.fechas')
+    <hr>
     <div class="row">
         <div class="col-md-6">TOTAL DE AHORROS: $ {{ $ahorros }}</div>
         <div class="col-md-6">TOTAL DE GASTOS: $ {{ $gastos }}</div>

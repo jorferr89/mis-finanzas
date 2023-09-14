@@ -17,6 +17,12 @@
     </div>
 
     @include ('layouts.mensaje')
+    <hr>
+    <form method="POST" action="{{route('transacciones.index')}}">
+        @csrf
+        @include ('filtros.fechas')
+    </form>
+    <hr>
     <div class="table-responsive pt-2">
         <table class="table table-bordered data-table display nowrap" id="transacciones_tabla" style="width:100%">
             <thead>

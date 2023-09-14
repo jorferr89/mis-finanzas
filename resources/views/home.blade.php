@@ -11,7 +11,10 @@
 <div class="container bg-light text-dark rounded p-2">
     <h1>Dashboard</h1>
     <hr>
-    @include ('filtros.fechas')
+    <form method="POST" action="{{route('home')}}">
+        @csrf
+        @include ('filtros.fechas')
+    </form>
     <hr>
     <div class="row">
         <div class="col-md-6">TOTAL DE AHORROS: $ {{ $ahorros }}</div>
@@ -22,12 +25,12 @@
         <div class="col-md-6">TOTAL DE INVERSIÓN: $ {{ $inversion }}</div>
     </div>
 
-    @if ($disponible > 0) <span class="badge bg-success"> + {{ $disponible }} </span>
-    @else <span class="badge bg-danger"> - {{ $disponible }} </span>
+    @if ($disponible > 0) <span class="badge bg-success"> {{ $disponible }} </span>
+    @else <span class="badge bg-danger"> {{ $disponible }} </span>
     @endif
 </div>
 
-@if($cantidadTransacciones > 5)
+@if($cantidadTransacciones >= 5)
     <div class="container bg-light text-dark rounded p-2 mt-4">
         <div id="curve_chart" style="width: auto; height: auto;"></div>
     </div>

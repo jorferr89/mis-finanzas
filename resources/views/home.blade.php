@@ -10,6 +10,9 @@
 
 <div class="container bg-light text-dark rounded p-2">
     <h1>Dashboard</h1>
+    @if($fecha_desde == null && $fecha_hasta == null)
+        <h4>(Últimos 30 días)</h4>
+    @endif
     <hr>
     <form method="POST" action="{{route('home')}}">
         @csrf

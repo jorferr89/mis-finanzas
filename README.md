@@ -9,7 +9,7 @@ Administre sus Finanzas en cualquier lugar y desde cualquier dispositivo. Regist
 ```
 composer install
 ```
-3. Cambiar de nombre el archivo ".env.example" por ".env" y configure la conexión a la base de datos
+3. Cambiar de nombre el archivo ".env.example" por ".env" y configurar la conexión a la base de datos
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -44,4 +44,4 @@ php artisan serve
 ![Mis Transacciones](capturas/mis-transacciones.jpg)
 ![Crear Transaccion](capturas/crear-transaccion.jpg)
 ![Categorias](capturas/categorias.jpg)
-![Crear Categoria](capturas/crear-categoria.jpg)
+![Crear Categoria](capturas/crear-categoria.jpg) 
